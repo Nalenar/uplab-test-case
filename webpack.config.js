@@ -1,63 +1,123 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const autoprefixer = require("autoprefixer");
 
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const isProduction = process.env.NODE_ENV == "production";
+const isDevelopment = !isProduction;
 
-const isProduction = process.env.NODE_ENV == 'production';
-
-
-const stylesHandler = MiniCssExtractPlugin.loader;
-
-
+const fileName = "[name]-[contenthash]"
+const filePath = {
+  src: {
+    folder: "src",
+    script: "src/js/script.js",
+    style: "src/scss/style.scss",
+    pages: "src/pages",
+    images: "src/images",
+    fonts: "src/fonts",
+  },
+  dist: {
+    folder: "public",
+    assets: "assets",
+  },
+};
 
 const config = {
-    entry: './src/index.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
+  entry: [filePath.src.script, filePath.src.style],
+  output: {
+    path: path.resolve(__dirname, filePath.dist.folder),
+    filename: `${filePath.dist.assets}/${fileName}.js`,
+    clean: true,
+  },
+  devtool: isDevelopment ? "eval-source-map" : "none",
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, filePath.dist.folder),
     },
-    devServer: {
-        open: true,
-        host: 'localhost',
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'index.html',
-        }),
+    host: "localhost",
+    open: true,
+    hot: true,
+    port: 5001,
+    watchFiles: [filePath.src.folder],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: `${filePath.src.pages}/index.html`,
+      filename: "index.html",
+    }),
 
-        new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: `${filePath.src.pages}/gui.html`,
+      filename: "gui.html",
+    }),
 
-        // Add your plugins here
-        // Learn more about plugins from https://webpack.js.org/configuration/plugins/
-    ],
-    module: {
-        rules: [
-            {
-                test: /\.(js|jsx)$/i,
-                loader: 'babel-loader',
+    new MiniCssExtractPlugin({
+      filename: `${filePath.dist.assets}/${fileName}.css`
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            plugins: ["@babel/syntax-dynamic-import"],
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  modules: false,
+                },
+              ],
+            ],
+            balbelrc: false,
+          },
+        },
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: isDevelopment,
             },
-            {
-                test: /\.s[ac]ss$/i,
-                use: [stylesHandler, 'css-loader', 'postcss-loader', 'sass-loader'],
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [autoprefixer()],
+              },
+              sourceMap: isDevelopment,
             },
-            {
-                test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-                type: 'asset',
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: isDevelopment,
             },
-
-            // Add your rules for custom modules here
-            // Learn more about loaders from https://webpack.js.org/loaders/
+          },
         ],
-    },
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,
+        type: "asset",
+      },
+    ],
+  },
 };
 
 module.exports = () => {
-    if (isProduction) {
-        config.mode = 'production';
-        
-        
-    } else {
-        config.mode = 'development';
-    }
-    return config;
+  if (isProduction) {
+    config.mode = "production";
+  } else {
+    config.mode = "development";
+  }
+  return config;
 };
