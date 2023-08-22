@@ -1,0 +1,10 @@
+.header {
+    height: rem-calc(68px);
+    width: 100%;
+
+    background-color: aqua;
+
+    @media #{$screen-tablet} {
+        height: rem-calc(79px);
+    }
+}

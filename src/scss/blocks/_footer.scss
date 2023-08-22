@@ -1,0 +1,12 @@
+.footer {
+    background-color: aqua;
+    height: rem-calc(550px);
+
+    @media #{$screen-tablet} {
+        height: rem-calc(335px);
+    }
+
+    @media #{$screen-desktop} {
+        height: rem-calc(300px);
+    }
+}
