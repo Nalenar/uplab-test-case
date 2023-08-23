@@ -1,1 +1,199 @@
-// Fonts
+@font-face {
+  $font-name: "#{$font-family-gilroy}-Thin";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-thin;
+  font-style: normal;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-ThinItalic";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-thin;
+  font-style: italic;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-UltraLight";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-ultra-light;
+  font-style: normal;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-UltraLightItalic";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-ultra-light;
+  font-style: italic;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-Light";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-light;
+  font-style: normal;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-LightItalic";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-light;
+  font-style: italic;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-Regular";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-regular;
+  font-style: normal;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-RegularItalic";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-regular;
+  font-style: italic;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-Medium";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-medium;
+  font-style: normal;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-MediumItalic";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-medium;
+  font-style: italic;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-Semibold";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-semibold;
+  font-style: normal;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-SemiboldItalic";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-semibold;
+  font-style: italic;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-Bold";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-bold;
+  font-style: normal;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-BoldItalic";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-bold;
+  font-style: italic;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-Extrabold";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-extra-bold;
+  font-style: normal;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-ExtraboldItalic";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-extra-bold;
+  font-style: italic;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-Black";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-black;
+  font-style: normal;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-BlackItalic";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-black;
+  font-style: italic;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-Heavy";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-heavy;
+  font-style: normal;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}
+
+@font-face {
+  $font-name: "#{$font-family-gilroy}-HeavyItalic";
+  font-family: $font-family-gilroy;
+  font-weight: $font-weight-heavy;
+  font-style: italic;
+  src:
+    url("#{$font-path}/#{$font-name}.woff") format("woff"),
+    url("#{$font-path}/#{$font-name}.woff2") format("woff2");
+}

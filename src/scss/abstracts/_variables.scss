@@ -10,7 +10,23 @@ $background-color: $white;
 //
 // Fonts
 //
-$font-family: sans-serif;
+$font-path: "assets/fonts";
+
+$font-family-default: Arial, Helvetica, sans-serif;
+$font-family-gilroy: "Gilroy";
+
+$font-family: $font-family-gilroy, $font-family-default;
+
+$font-weight-thin: 100;
+$font-weight-ultra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+$font-weight-heavy: 1000;
 
 $font-size-base: 16px;
 $line-height-base: 26px;
