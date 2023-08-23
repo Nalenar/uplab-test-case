@@ -24,3 +24,38 @@ body {
   line-height: rem-calc($line-height-base);
   text-rendering: optimizeLegibility;
 }
+
+h1 {
+  font-size: rem-calc(44px);
+  font-style: normal;
+  font-weight: $font-weight-semibold;
+  line-height: normal;
+}
+
+h2 {
+  font-size: rem-calc(32px);
+  font-style: normal;
+  font-weight: $font-weight-semibold;
+  line-height: normal;
+}
+
+h3 {
+  font-size: rem-calc(26px);
+  font-style: normal;
+  font-weight: $font-weight-semibold;
+  line-height: rem-calc(36px);
+}
+
+h4 {
+  font-size: rem-calc(18px);
+  font-style: normal;
+  font-weight: $font-weight-semibold;
+  line-height: rem-calc(26px);
+}
+
+p {
+  font-size: rem-calc(15px);
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  line-height: rem-calc(24px);
+}
