@@ -1,0 +1,21 @@
+.text {
+  &--white {
+    color: $white;
+  }
+
+  &--button {
+    font-size: rem-calc(16px);
+    font-weight: $font-weight-medium;
+    line-height: normal;
+  }
+
+  &--card {
+    color: $color-text-card;
+    font-weight: $font-weight-medium;
+    line-height: rem-calc(20px);
+  }
+
+  &--card-white {
+    color: $color-text-card-white;
+  }
+}
