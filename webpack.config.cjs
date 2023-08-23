@@ -38,7 +38,6 @@ const config = {
       directory: path.resolve(__dirname, file.path.dist.folder),
     },
     host: "localhost",
-    open: true,
     hot: true,
     port: 5001,
     watchFiles: [file.path.src.folder],
@@ -101,6 +100,7 @@ const config = {
             loader: "css-loader",
             options: {
               sourceMap: isDevelopment,
+              url: false
             },
           },
           {
