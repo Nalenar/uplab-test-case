@@ -1,0 +1,18 @@
+.container {
+  $gap-container: 30px;
+
+  width: 100%;
+  max-width: rem-calc($container-width + 2 * $gap-container);
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: rem-calc($gap-container);
+  padding-right: rem-calc($gap-container);
+
+  @media #{$screen-tablet} {
+    $gap-container: 39px;
+
+    max-width: rem-calc($container-width + 2 * $gap-container);
+    padding-left: rem-calc($gap-container);
+    padding-right: rem-calc($gap-container);
+  }
+}

@@ -18,10 +18,13 @@ $line-height-base: 26px;
 //
 // Breakpoints
 //
+$screen-desktop: "(min-widt: 1440px)";
+$screen-tablet: "(min-width: 768px)";
 
 //
 // Layout
 //
+$container-width: 1290px;
 
 //
 // Sizes
@@ -42,3 +45,4 @@ $line-height-base: 26px;
 //
 // Z-indexes
 //
+$z-index-header: 50;
