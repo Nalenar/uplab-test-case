@@ -10,7 +10,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@styles/*": ["./src/styles/*"],
-      "@fonts/*": ["./public/fonts/*"]
+      "@fonts/*": ["./public/fonts/*"],
+      "@components/*": ["./src/components/*"]
     }
   }
 }

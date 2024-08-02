@@ -13,7 +13,8 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
       "@styles": path.resolve("src/styles"),
-      "@fonts": path.resolve("public/fonts")
-    }
-  }
+      "@fonts": path.resolve("public/fonts"),
+      "@components": path.resolve("src/components"),
+    },
+  },
 });
