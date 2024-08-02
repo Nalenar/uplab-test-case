@@ -4,6 +4,8 @@
 @import "./functions";
 
 :root {
+  --color-black: #000;
+  --color-white: #fff;
   --color-border: #635e55;
   --color-bg: #e2e2e1;
   --color-logo: #5c5c5c;
@@ -34,6 +36,11 @@ body {
   font-family: Roboto, sans-serif;
   font-size: to-rem(16);
   color: var(--color-text-main);
+}
+
+ul,
+ol {
+  list-style: none;
 }
 
 .material-symbols-outlined {
