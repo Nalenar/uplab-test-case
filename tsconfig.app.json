@@ -8,7 +8,9 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@fonts/*": ["./public/fonts/*"]
     }
   }
 }

@@ -1,4 +1,5 @@
 import { fileURLToPath, URL } from "node:url";
+import path from "path";
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
@@ -10,7 +11,9 @@ export default defineConfig({
   plugins: [vue(), vueJsx(), vueDevTools()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url))
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@styles": path.resolve("src/styles"),
+      "@fonts": path.resolve("public/fonts")
     }
   }
 });
