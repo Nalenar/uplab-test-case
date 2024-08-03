@@ -4,7 +4,7 @@
       <div class="logo__circle" />
       <p class="logo__letter">T</p>
     </div>
-    <p class="logo__text">raveler</p>
+    <p class="logo__text">raveller</p>
   </div>
 </template>
 
