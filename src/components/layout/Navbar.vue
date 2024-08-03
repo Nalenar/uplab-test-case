@@ -19,7 +19,7 @@ import NavigationLinks from "@components/partials/NavigationLinks.vue";
   justify-content: space-between;
 
   width: 100%;
-  height: to-rem(70);
+  height: to-rem($navbar-height);
   padding: 0 to-rem(80);
 }
 </style>

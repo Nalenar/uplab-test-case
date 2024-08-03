@@ -25,7 +25,7 @@
   text-transform: uppercase;
 
   &__text {
-    color: var(--color-text-secondary);
+    color: $color-text-secondary;
     letter-spacing: 4px;
   }
 
@@ -42,13 +42,13 @@
   &__circle {
     aspect-ratio: 1;
     width: 100%;
-    background-color: var(--color-logo);
+    background-color: $color-logo;
     border-radius: 50%;
   }
 
   &__letter {
     position: absolute;
-    color: var(--color-white);
+    color: $color-white;
   }
 }
 </style>

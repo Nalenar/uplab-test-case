@@ -19,7 +19,7 @@
 
     font-size: to-rem(18);
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: $color-text-secondary;
     text-transform: uppercase;
 
     background-image: linear-gradient(currentcolor, currentcolor);
@@ -36,7 +36,7 @@
   }
 
   .active {
-    color: var(--color-logo);
+    color: $color-logo;
   }
 }
 </style>
