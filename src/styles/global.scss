@@ -2,16 +2,7 @@
 @import "./fonts";
 @import "./variables";
 @import "./functions";
-
-// :root {
-//   --color-black: #000;
-//   --color-white: #fff;
-//   --color-border: #635e55;
-//   --color-bg: #e2e2e1;
-//   --color-logo: #5c5c5c;
-//   --color-text-main: #2b2924;
-//   --color-text-secondary: #a4a3a3;
-// }
+@import "./mixins";
 
 *,
 *::before,
@@ -24,8 +15,6 @@
 html,
 body,
 #app {
-  // overflow: hidden;
-
   width: 100%;
   max-width: 100vw;
   height: 100%;
@@ -36,6 +25,7 @@ body {
   font-family: Roboto, sans-serif;
   font-size: to-rem($font-size-base);
   color: $color-text-main;
+  background-color: $color-bg;
 }
 
 ul,
@@ -44,49 +34,13 @@ ol {
 }
 
 .material-symbols-outlined {
-  direction: ltr;
-  display: inline-block;
-
-  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-  font-family: "Material Symbols Outlined";
-  font-size: 24px;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
+  @include use-material-symbols("Material Symbols Outlined");
 }
 
 .material-symbols-rounded {
-  direction: ltr;
-  display: inline-block;
-
-  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-  font-family: "Material Symbols Rounded";
-  font-size: 24px;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
+  @include use-material-symbols("Material Symbols Rounded");
 }
 
 .material-symbols-sharp {
-  direction: ltr;
-  display: inline-block;
-
-  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-  font-family: "Material Symbols Sharp";
-  font-size: 24px;
-  font-weight: normal;
-  font-style: normal;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
+  @include use-material-symbols("Material Symbols Sharp");
 }
