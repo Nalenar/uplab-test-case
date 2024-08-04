@@ -1,8 +1,8 @@
 <template>
   <main class="root">
     <div class="background">
-      <img class="background-image" src="/images/main1.jpg" />
-      <d class="background-cover" />
+      <img class="background-image" :src="heroImgArr[activeImg]" />
+      <div class="background-cover" />
     </div>
     <div class="container">
       <h1 class="heading">feel the beauty of africa</h1>
@@ -26,12 +26,23 @@
       </div>
     </div>
     <div class="pagination">
-      <div class="circle active" />
-      <div class="circle" />
-      <div class="circle" />
+      <button
+        v-for="(_, index) of heroImgArr"
+        class="circle"
+        :key="index"
+        @click.prevent="activeImg = index"
+        :class="index === activeImg ? 'active' : ''"
+      />
     </div>
   </main>
 </template>
+
+<script setup lang="ts">
+import { ref } from "vue";
+import { heroImgArr } from "@utils/images";
+
+const activeImg = ref(0);
+</script>
 
 <style lang="scss" scoped>
 @import "@styles/functions";
@@ -150,11 +161,21 @@
     width: to-rem(12);
 
     background-color: $color-text-secondary;
+    border: none;
     border-radius: 50%;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &:active {
+      background-color: $color-border;
+    }
   }
 
   .active {
-    background: #fff;
+    background-color: $color-white;
+    transition: background-color 0.2s ease-in-out;
   }
 }
 </style>
