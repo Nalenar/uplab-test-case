@@ -13,7 +13,8 @@
       "@fonts/*": ["./public/fonts/*"],
       "@components/*": ["./src/components/*"],
       "@images/*": ["./public/images/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@icons/*": ["./src/assets/icons/*"]
     }
   }
 }
