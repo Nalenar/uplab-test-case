@@ -11,7 +11,9 @@
       "@/*": ["./src/*"],
       "@styles/*": ["./src/styles/*"],
       "@fonts/*": ["./public/fonts/*"],
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "@images/*": ["./public/images/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   }
 }

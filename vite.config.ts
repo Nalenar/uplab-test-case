@@ -15,6 +15,8 @@ export default defineConfig({
       "@styles": path.resolve("src/styles"),
       "@fonts": path.resolve("./fonts"),
       "@components": path.resolve("src/components"),
+      "@images": path.resolve("./images"),
+      "@utils": path.resolve("src/utils"),
     },
   },
 });
