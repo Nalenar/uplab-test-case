@@ -11,16 +11,16 @@
         the life you can see on "TRAVELLER"
       </p>
       <div class="options">
-        <div class="option">
-          <span class="material-symbols-outlined heart">favorite</span>
+        <div class="option" @click="isLiked = !isLiked" :class="{ clicked: isLiked }">
+          <Icon name="heart" class="heart" />
           <p class="number">31</p>
         </div>
-        <div class="option">
-          <span class="material-symbols-outlined heart">chat</span>
+        <div class="option" @click="isCommented = !isCommented" :class="{ clicked: isCommented }">
+          <Icon name="comments" class="comments" />
           <p class="number">21</p>
         </div>
         <div class="option option_read">
-          <span class="material-symbols-outlined heart">subject</span>
+          <Icon name="docs" />
           <p class="number">Read more</p>
         </div>
       </div>
@@ -38,10 +38,14 @@
 </template>
 
 <script setup lang="ts">
+import Icon from "@components/partials/Icon.vue";
+
 import { ref } from "vue";
 import { heroImgArr } from "@utils/images";
 
 const activeImg = ref(0);
+const isLiked = ref<boolean>(false);
+const isCommented = ref(false);
 </script>
 
 <style lang="scss" scoped>
@@ -124,13 +128,36 @@ const activeImg = ref(0);
   gap: to-rem(20);
 
   .option {
+    cursor: pointer;
+
     display: flex;
     gap: to-rem(6);
     align-items: center;
     justify-content: center;
 
+    transition:
+      color 0.2s ease-in-out,
+      border 0.2s ease-in-out,
+      transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
     .number {
       font-weight: 500;
+    }
+
+    &.clicked {
+      .comments,
+      .comments + .number {
+        color: $color-commented;
+      }
+
+      .heart,
+      .heart + .number {
+        color: $color-liked;
+      }
     }
 
     &_read {
@@ -141,6 +168,11 @@ const activeImg = ref(0);
 
       border: 1px solid $color-text-secondary;
       border-radius: to-rem(10);
+
+      &:hover {
+        color: $color-commented;
+        border-color: $color-commented;
+      }
     }
   }
 }
