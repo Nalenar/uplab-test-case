@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineAsyncComponent, type PropType } from "vue";
 
-type IconType = "heart" | "comments" | "docs";
+type IconType = "heart" | "comments" | "docs" | "arrow";
 
 const props = defineProps({
   name: { type: String as PropType<IconType>, required: true },
