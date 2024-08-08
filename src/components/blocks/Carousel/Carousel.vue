@@ -37,6 +37,7 @@ const props = defineProps({
   timeoutDuration: {
     type: Number,
     default: 5000,
+    validator: (value: number) => value >= 0 && value <= 10000,
   },
   autoPlay: {
     type: Boolean,
