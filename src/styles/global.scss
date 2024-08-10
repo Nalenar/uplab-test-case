@@ -15,6 +15,7 @@
 html,
 body,
 #app {
+  box-sizing: border-box;
   width: 100%;
   max-width: 100vw;
   height: 100%;
@@ -31,16 +32,4 @@ body {
 ul,
 ol {
   list-style: none;
-}
-
-.material-symbols-outlined {
-  @include use-material-symbols("Material Symbols Outlined");
-}
-
-.material-symbols-rounded {
-  @include use-material-symbols("Material Symbols Rounded");
-}
-
-.material-symbols-sharp {
-  @include use-material-symbols("Material Symbols Sharp");
 }
