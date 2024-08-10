@@ -1,8 +1,13 @@
 <template>
-  <main class="root">
+  <div class="root">
     <div class="background">
-      <img class="background-image" :src="heroImgArr[activeImg]" />
-      <div class="background-cover" />
+      <Carousel v-slot="{ currentSlide }" class="carousel" cover :navigation="false" :timeout-duration="10000">
+        <Slide v-for="(slide, index) in heroImgArr" :key="index">
+          <div v-show="currentSlide === index" class="slide-info">
+            <img :src="slide" />
+          </div>
+        </Slide>
+      </Carousel>
     </div>
     <div class="container">
       <h1 class="heading">feel the beauty of africa</h1>
@@ -25,26 +30,18 @@
         </div>
       </div>
     </div>
-    <div class="pagination">
-      <button
-        v-for="(_, index) of heroImgArr"
-        class="circle"
-        :key="index"
-        @click.prevent="activeImg = index"
-        :class="index === activeImg ? 'active' : ''"
-      />
-    </div>
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">
 import Icon from "@components/partials/Icon.vue";
+import Carousel from "@components/blocks/Carousel/Carousel.vue";
+import Slide from "@components/blocks/Carousel/Slide.vue";
 
 import { ref } from "vue";
 import { heroImgArr } from "@utils/images";
 
-const activeImg = ref(0);
-const isLiked = ref<boolean>(false);
+const isLiked = ref(false);
 const isCommented = ref(false);
 </script>
 
@@ -69,25 +66,27 @@ const isCommented = ref(false);
   width: 100%;
   height: 100%;
 
-  &-image {
-    position: inherit;
-    z-index: -2;
-
+  .carousel {
+    position: relative;
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-  }
+    .slide-info {
+      position: absolute;
+      top: 0;
+      left: 0;
 
-  &-cover {
-    position: inherit;
-    z-index: -1;
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
 
-    width: 100%;
-    height: 100%;
-
-    opacity: 0.5;
-    background-color: $color-black;
+      img {
+        width: 100%;
+        min-width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
   }
 }
 
@@ -174,40 +173,6 @@ const isCommented = ref(false);
         border-color: $color-commented;
       }
     }
-  }
-}
-
-.pagination {
-  position: absolute;
-  bottom: to-rem(30);
-
-  display: flex;
-  gap: to-rem(15);
-  align-items: center;
-  justify-content: center;
-
-  .circle {
-    cursor: pointer;
-
-    aspect-ratio: 1;
-    width: to-rem(12);
-
-    background-color: $color-text-secondary;
-    border: none;
-    border-radius: 50%;
-
-    &:hover {
-      opacity: 0.85;
-    }
-
-    &:active {
-      background-color: $color-border;
-    }
-  }
-
-  .active {
-    background-color: $color-white;
-    transition: background-color 0.2s ease-in-out;
   }
 }
 </style>
