@@ -1,9 +1,10 @@
 <template>
-  <div class="carousel">
+  <div>
     <slot :currentSlide />
+    <div v-if="props.cover" class="cover" />
 
     <!-- Navigation -->
-    <div class="navigate" v-if="props.navigation">
+    <div class="navigation" v-if="props.navigation">
       <div class="toggle-page left" @click="prevSlide">
         <Icon name="arrow" class="icon" />
       </div>
@@ -47,6 +48,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  cover: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const currentSlide = ref(0);
@@ -56,7 +61,6 @@ const timeoutDuration = ref(props.timeoutDuration);
 
 onMounted(() => {
   getSlideCount.value = document.querySelectorAll(".slide").length;
-  console.log(getSlideCount.value);
 });
 
 const nextSlide = (): void => {
@@ -91,7 +95,20 @@ if (autoPlayEnabled.value) {
 </script>
 
 <style lang="scss" scoped>
-.navigate {
+@import "@styles/functions";
+
+.cover {
+  position: absolute;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0.5;
+  background-color: $color-black;
+}
+
+.navigation {
   position: absolute;
   z-index: 1;
 
@@ -138,10 +155,10 @@ if (autoPlayEnabled.value) {
 
 .pagination {
   position: absolute;
-  bottom: 24px;
+  bottom: to-rem(30);
 
   display: flex;
-  gap: 16px;
+  gap: to-rem(15);
   align-items: center;
   justify-content: center;
 
@@ -152,18 +169,20 @@ if (autoPlayEnabled.value) {
 
     z-index: 1;
 
-    width: 20px;
-    height: 20px;
+    aspect-ratio: 1;
+    width: to-rem(12);
 
-    background-color: #fff;
+    background-color: $color-text-secondary;
     border-radius: 50%;
     box-shadow:
       0 1px 3px 0 rgb(0 0 0 / 10%),
       0 1px 2px 0 rgb(0 0 0 / 6%);
-  }
 
-  .active {
-    background-color: #6347c7;
+    transition: background 0.2s ease-in-out;
+
+    &.active {
+      background-color: $color-white;
+    }
   }
 }
 </style>
