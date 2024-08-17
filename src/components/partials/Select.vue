@@ -103,8 +103,11 @@ onBeforeUnmount(() => {
   &__body {
     position: absolute;
     z-index: 2;
-    top: calc(100% + 4px);
+    top: auto;
+    bottom: 100%;
+
     width: 100%;
+    margin: to-rem(4) 0;
   }
 
   &__item {
