@@ -1,48 +1,43 @@
 <template>
   <div class="root">
-    <Carousel class="carousel" v-slot="{ currentSlide }">
-      <Slide v-for="(slide, index) in carouselSlides" :key="index">
-        <div v-show="currentSlide === index" class="slide-info">
-          <img :src="slide" alt="" />
-        </div>
-      </Slide>
-    </Carousel>
+    <Select class="select" :options v-model="parentSelectedOption" with-null-option placeholder="Categories" />
+    <br />
+    <h1>parentSelectedOption: {{ parentSelectedOption }}</h1>
   </div>
 </template>
 
 <script setup lang="ts">
-import Carousel from "@components/blocks/Carousel/Carousel.vue";
-import Slide from "@components/blocks/Carousel/Slide.vue";
-import { heroImgArr } from "@utils/images";
+import Select from "@/components/partials/Select.vue";
+import { type IOption } from "@/types";
 
-const carouselSlides = heroImgArr.slice();
+import { ref } from "vue";
+
+const options = ref<IOption[]>([
+  {
+    name: "user1",
+    value: 1,
+  },
+  {
+    name: "user2",
+    value: 2,
+  },
+  {
+    name: "user3",
+    value: 3,
+  },
+]);
+
+const parentSelectedOption = ref<IOption["value"]>(null);
 </script>
 
 <style lang="scss" scoped>
 .root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
   height: 100%;
-}
-
-.carousel {
-  position: relative;
-  height: 100%;
-
-  .slide-info {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-    max-height: 100%;
-
-    img {
-      width: 100%;
-      min-width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
 }
 </style>
