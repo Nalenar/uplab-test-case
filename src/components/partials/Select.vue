@@ -3,7 +3,7 @@
     <div class="select__head" @click="isOpened = !isOpened">
       <p class="head__title">{{ getOptionOrPlaceholder }}</p>
       <span class="head__icon">
-        <Icon :name="props.icon ? props.icon : `arrow`" :class="{ active: isOpened }" />
+        <Icon class="svg" :name="props.icon ? props.icon : `arrow`" :class="{ active: isOpened }" />
       </span>
     </div>
     <Transition name="slide-fade">
@@ -33,7 +33,7 @@ const isOpened = ref<boolean>(false);
 const selectedOption = ref<IOption | null>(null);
 
 const options = computed(() => {
-  return props.withNullOption ? [{ name: "---", value: null }, ...props.options] : props.options;
+  return props.withNullOption ? [{ name: "--- Reset ---", value: null }, ...props.options] : props.options;
 });
 
 const getOptionOrPlaceholder = computed((): string => {
