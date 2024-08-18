@@ -6,7 +6,7 @@
         :class="{ active: select !== null }"
         :options="usersList"
         with-null-option
-        placeholder="Chose user"
+        placeholder="Choose user"
         v-model="select"
       />
       <p class="heading">Newest articles</p>
@@ -140,7 +140,7 @@ const usersList = ref<IOption[]>([
     &.active {
       :deep(.select__head) {
         font-weight: 400;
-        color: $color-text-main;
+        color: $color-logo;
         text-transform: none;
         letter-spacing: normal;
       }
@@ -174,6 +174,7 @@ const usersList = ref<IOption[]>([
     }
 
     :deep(.select__item) {
+      color: $color-logo;
       border-color: $color-bg;
       border-radius: 0;
     }
