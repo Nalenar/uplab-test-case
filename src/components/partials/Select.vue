@@ -106,7 +106,10 @@ onBeforeUnmount(() => {
     top: auto;
     bottom: 100%;
 
+    overflow: hidden auto;
+
     width: 100%;
+    max-height: to-rem(200);
     margin: to-rem(4) 0;
   }
 
