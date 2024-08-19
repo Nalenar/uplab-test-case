@@ -15,20 +15,7 @@
         Get in touch with all the nature, life, meanings of africa only by reading articles, watching fotos and living
         the life you can see on "TRAVELLER"
       </p>
-      <div class="options">
-        <div class="option" @click="isLiked = !isLiked" :class="{ clicked: isLiked }">
-          <Icon name="heart" class="heart" />
-          <p class="number">31</p>
-        </div>
-        <div class="option" @click="isCommented = !isCommented" :class="{ clicked: isCommented }">
-          <Icon name="comments" class="comments" />
-          <p class="number">21</p>
-        </div>
-        <div class="option option_read">
-          <Icon name="docs" />
-          <p class="number">Read more</p>
-        </div>
-      </div>
+      <Details color="white" />
     </div>
   </div>
 </template>
@@ -37,6 +24,7 @@
 import Icon from "@components/partials/Icon.vue";
 import Carousel from "@components/blocks/Carousel/Carousel.vue";
 import Slide from "@components/blocks/Carousel/Slide.vue";
+import Details from "@components/blocks/Details.vue";
 
 import { ref } from "vue";
 import { heroImgArr } from "@utils/images";
@@ -72,6 +60,7 @@ const isCommented = ref(false);
     width: 100%;
     height: 100%;
 
+    /* stylelint-disable-next-line selector-class-pattern */
     .slide-info {
       position: absolute;
       top: 0;
@@ -103,8 +92,7 @@ const isCommented = ref(false);
 }
 
 .heading,
-.text,
-.options {
+.text {
   color: $color-white;
 }
 
@@ -121,59 +109,5 @@ const isCommented = ref(false);
   font-size: to-rem(20);
   line-height: 150%;
   letter-spacing: to-rem(3);
-}
-
-.options {
-  display: flex;
-  gap: to-rem(20);
-
-  .option {
-    cursor: pointer;
-
-    display: flex;
-    gap: to-rem(6);
-    align-items: center;
-    justify-content: center;
-
-    transition:
-      color 0.2s ease-in-out,
-      border 0.2s ease-in-out,
-      transform 0.2s ease-in-out;
-
-    &:hover {
-      transform: scale(1.05);
-    }
-
-    .number {
-      font-weight: 500;
-    }
-
-    &.clicked {
-      .comments,
-      .comments + .number {
-        color: $color-commented;
-      }
-
-      .heart,
-      .heart + .number {
-        color: $color-liked;
-      }
-    }
-
-    &_read {
-      margin-left: to-rem(30);
-      padding: to-rem(3) to-rem(10);
-
-      color: $color-text-secondary;
-
-      border: 1px solid $color-text-secondary;
-      border-radius: to-rem(10);
-
-      &:hover {
-        color: $color-commented;
-        border-color: $color-commented;
-      }
-    }
-  }
 }
 </style>
