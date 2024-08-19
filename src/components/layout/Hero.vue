@@ -21,7 +21,6 @@
 </template>
 
 <script setup lang="ts">
-import Icon from "@components/partials/Icon.vue";
 import Carousel from "@components/blocks/Carousel/Carousel.vue";
 import Slide from "@components/blocks/Carousel/Slide.vue";
 import Details from "@components/blocks/Details.vue";
