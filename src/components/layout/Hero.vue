@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import Carousel from "@components/blocks/Carousel/Carousel.vue";
 import Slide from "@components/blocks/Carousel/Slide.vue";
-import Details from "@components/blocks/Details.vue";
+import Details from "@/components/partials/Details.vue";
 
 import { ref } from "vue";
 import { heroImgArr } from "@utils/images";

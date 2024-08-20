@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import Select from "@/components/partials/Select.vue";
-import Details from "@components/blocks/Details.vue"
+import Details from "@/components/partials/Details.vue";
 import { type IOption } from "@/types";
 
 import { ref } from "vue";
