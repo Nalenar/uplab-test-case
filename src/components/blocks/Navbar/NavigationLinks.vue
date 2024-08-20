@@ -1,11 +1,19 @@
 <template>
   <ul class="links">
-    <li class="link active">Blog</li>
-    <li class="link">Articles</li>
-    <li class="link">Gallery</li>
-    <li class="link">Contact</li>
+    <RouterLink v-for="(route, index) of routes" :key="index" :to="route.path" active-class="active" class="link">{{
+      route.name
+    }}</RouterLink>
+    <!-- <li class="link">Gallery</li> -->
   </ul>
 </template>
+
+<script setup lang="ts">
+import { RouterLink, useRouter } from "vue-router";
+
+const router = useRouter();
+
+const routes = router.getRoutes().filter((route) => !["test"].includes(route.name?.toString()!));
+</script>
 
 <style lang="scss" scoped>
 @import "@styles/functions";
@@ -20,6 +28,7 @@
     font-size: to-rem(18);
     font-weight: 500;
     color: $color-text-secondary;
+    text-decoration: none;
     text-transform: uppercase;
 
     background-image: linear-gradient(currentcolor, currentcolor);
