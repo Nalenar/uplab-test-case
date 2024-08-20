@@ -20,14 +20,18 @@
         <button><Icon name="search" /></button>
       </div>
     </div>
+    <div class="cards">
+      <Card :card />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Icon from "@components/partials/Icon.vue";
 import Select from "@components/partials/Select.vue";
+import Card from "@components/partials/Card.vue";
 
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
 import type { IOption } from "@/types";
 
@@ -39,6 +43,12 @@ const usersList = ref<IOption[]>([
   { name: "user2", value: 2 },
   { name: "user3", value: 3 },
 ]);
+const card = reactive({
+  date: "17 july 2024",
+  image: "/images/main1.jpg",
+  title: "Long time journey",
+  text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. A velit quod nesciunt accusantium ut numquam, voluptatem vitae doloribus iure consectetur saepe, distinctio dolorum magni eos nulla dignissimos fuga rem molestias!",
+});
 </script>
 
 <style lang="scss" scoped>
@@ -67,6 +77,7 @@ const usersList = ref<IOption[]>([
     color: $color-logo;
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
   .select,
@@ -87,7 +98,7 @@ const usersList = ref<IOption[]>([
     border: 1px solid $color-text-secondary;
 
     &.focused {
-      border-color: aqua;
+      border-color: $color-commented;
     }
 
     input {
@@ -179,5 +190,14 @@ const usersList = ref<IOption[]>([
       border-radius: 0;
     }
   }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: to-rem(40);
+
+  width: 100%;
+  margin-top: to-rem(50);
 }
 </style>
