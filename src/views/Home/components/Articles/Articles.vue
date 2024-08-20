@@ -27,9 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import Icon from "@components/partials/Icon.vue";
-import Select from "@components/partials/Select.vue";
-import Card from "@components/partials/Card.vue";
+import { Icon, Select } from "@components/partials";
+import { Card } from "@/views/Home";
 
 import { reactive, ref } from "vue";
 

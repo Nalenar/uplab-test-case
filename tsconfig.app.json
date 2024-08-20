@@ -14,7 +14,8 @@
       "@components/*": ["./src/components/*"],
       "@images/*": ["./public/images/*"],
       "@utils/*": ["./src/utils/*"],
-      "@icons/*": ["./src/assets/icons/*"]
+      "@icons/*": ["./src/assets/icons/*"],
+      "@views/*": ["./src/views/*"]
     }
   }
 }

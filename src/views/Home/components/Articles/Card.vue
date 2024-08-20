@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import Details from "@/components/partials/Details.vue";
+import { Details } from "@/components/blocks";
 
 interface Props {
   card: {

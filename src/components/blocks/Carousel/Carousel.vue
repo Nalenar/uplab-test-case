@@ -5,10 +5,10 @@
 
     <!-- Navigation -->
     <div class="navigation" v-if="props.navigation">
-      <div class="toggle-page left" @click="prevSlide">
+      <div class="toggle left" @click="prevSlide">
         <Icon name="arrow" class="icon" />
       </div>
-      <div class="toggle-page right" @click="nextSlide">
+      <div class="toggle right" @click="nextSlide">
         <Icon name="arrow" class="icon" />
       </div>
     </div>
@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import Icon from "@/components/partials/Icon.vue";
+import { Icon } from "@components/partials";
 import { ref, onMounted, defineProps } from "vue";
 
 const props = defineProps({
@@ -134,7 +134,7 @@ if (autoPlayEnabled.value) {
     border-radius: 50%;
   }
 
-  .toggle-page {
+  .toggle {
     cursor: pointer;
     display: flex;
     flex: 1;

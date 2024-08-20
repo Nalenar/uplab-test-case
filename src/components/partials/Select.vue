@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import Icon from "@components/partials/Icon.vue";
+import {Icon} from "@components/partials";
 
 import { computed, defineProps, ref, onMounted, onBeforeUnmount } from "vue";
 

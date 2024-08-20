@@ -19,6 +19,7 @@ export default defineConfig({
       "@images": path.resolve("./images"),
       "@utils": path.resolve("src/utils"),
       "@icons": path.resolve("src/assets/icons"),
+      "@views": path.resolve("src/views"),
     },
   },
 });

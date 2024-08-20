@@ -6,8 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import Logo from "@components/partials/Logo.vue";
-import NavigationLinks from "@components/partials/NavigationLinks.vue";
+import { Logo, NavigationLinks } from "@/components/blocks";
 </script>
 
 <style lang="scss" scoped>

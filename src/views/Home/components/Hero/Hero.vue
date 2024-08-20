@@ -21,9 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import Carousel from "@components/blocks/Carousel/Carousel.vue";
-import Slide from "@components/blocks/Carousel/Slide.vue";
-import Details from "@/components/partials/Details.vue";
+import { Carousel, Slide, Details } from "@/components/blocks";
 
 import { ref } from "vue";
 import { heroImgArr } from "@utils/images";
@@ -44,8 +42,7 @@ const isCommented = ref(false);
   justify-content: center;
 
   width: 100%;
-  height: calc(100% - $navbar-height);
-  margin-top: to-rem($navbar-height);
+  height: 100%;
 }
 
 .background {
