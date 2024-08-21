@@ -1,6 +1,6 @@
 <template>
   <div class="root">
-    <ArticlesHeader is-with-filters />
+    <ArticlesHeader title="Newest articles" />
 
     <div class="margin">
       <div v-if="articles && articles.length > 0" class="cards">
