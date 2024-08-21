@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="handleReadMore">
     <div class="wrapper">
       <div class="info">
         <p class="heading">{{ props.article.title }}</p>
@@ -14,9 +14,17 @@
 
 <script setup lang="ts">
 import { Details } from "@/components/blocks";
+
+import { useRouter } from "vue-router";
+
 import type ArticleProps from "@/types/interfaces/Article";
 
 const props = defineProps<ArticleProps>();
+const router = useRouter();
+
+const handleReadMore = () => {
+  router.push({ path: `/articles/${props.article.id}` });
+};
 </script>
 
 <style lang="scss" scoped>
