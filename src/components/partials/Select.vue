@@ -103,8 +103,6 @@ onBeforeUnmount(() => {
   &__body {
     position: absolute;
     z-index: 2;
-    top: auto;
-    bottom: 100%;
 
     overflow: hidden auto;
 
