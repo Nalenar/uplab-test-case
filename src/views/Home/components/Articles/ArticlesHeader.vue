@@ -9,7 +9,7 @@
       placeholder="Choose user"
       v-model="select"
     />
-    <p class="heading" :class="{ centered: !isWithFilters }">Newest articles</p>
+    <p class="heading" :class="{ centered: !isWithFilters }">{{ title }}</p>
     <div v-if="isWithFilters" class="search" :class="{ focused: isInputFocused }">
       <input
         type="search"
@@ -28,22 +28,27 @@ import { Select, Icon } from "@/components/partials";
 import { ref } from "vue";
 
 import type { IOption } from "@/types";
+import type User from "@/types/interfaces/User";
 
 defineProps({
   isWithFilters: {
     type: Boolean,
     default: false,
   },
+  title: {
+    type: String,
+    required: true,
+  },
 });
 
 const isInputFocused = ref<boolean>(false);
 
 const select = ref<IOption["value"] | null>(null);
-const usersList = ref<IOption[]>([
-  { name: "user1", value: 1 },
-  { name: "user2", value: 2 },
-  { name: "user3", value: 3 },
-]);
+const usersList = ref<IOption[]>([]);
+
+fetch(import.meta.env.VITE_API_URL + "/users")
+  .then((res) => res.json())
+  .then((json: User[]) => (usersList.value = json.map((user) => ({ name: user.name, value: user.id }))));
 </script>
 
 <style lang="scss" scoped>
