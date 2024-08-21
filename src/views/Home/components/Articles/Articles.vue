@@ -20,9 +20,12 @@
         <button><Icon name="search" /></button>
       </div>
     </div>
-    <div class="cards">
-      <Card :card />
+  </div>
+  <div class="wrapper">
+    <div v-if="articles && articles.length > 0" class="cards">
+      <Card v-for="article of articles" :key="article.id" :article />
     </div>
+    <p v-else class="error">Something went wrong...</p>
   </div>
 </template>
 
@@ -30,9 +33,10 @@
 import { Icon, Select } from "@components/partials";
 import { Card } from "@/views/Home";
 
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 
 import type { IOption } from "@/types";
+import type { Article } from "@/types/interfaces/Article";
 
 const isInputFocused = ref<boolean>(false);
 
@@ -42,12 +46,13 @@ const usersList = ref<IOption[]>([
   { name: "user2", value: 2 },
   { name: "user3", value: 3 },
 ]);
-const card = reactive({
-  date: "17 july 2024",
-  image: "/images/main1.jpg",
-  title: "Long time journey",
-  text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. A velit quod nesciunt accusantium ut numquam, voluptatem vitae doloribus iure consectetur saepe, distinctio dolorum magni eos nulla dignissimos fuga rem molestias!",
-});
+
+const articles = ref<Article[] | null>(null);
+
+fetch(import.meta.env.VITE_API_URL + "/posts?_limit=8")
+  .then((res) => res.json())
+  .then((json) => (articles.value = json))
+  .catch((error) => console.log(error));
 </script>
 
 <style lang="scss" scoped>
@@ -191,12 +196,22 @@ const card = reactive({
   }
 }
 
+.wrapper {
+  width: 100%;
+  padding: to-rem(50);
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: to-rem(40);
-
   width: 100%;
-  margin-top: to-rem(50);
+}
+
+.error {
+  width: 100%;
+  font-size: to-rem(24);
+  color: $color-logo;
+  text-align: center;
 }
 </style>

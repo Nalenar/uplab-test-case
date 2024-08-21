@@ -1,13 +1,11 @@
 <template>
   <div class="card">
-    <img :src="props.card.image" />
     <div class="wrapper">
       <div class="info">
-        <p class="posted">posted on: {{ props.card.date }}</p>
-        <p class="heading">{{ props.card.title }}</p>
+        <p class="heading">{{ props.article.title }}</p>
       </div>
       <p class="text">
-        {{ props.card.text }}
+        {{ props.article.body }}
       </p>
       <Details color="#a4a3a3" gap="10" class="details" />
     </div>
@@ -16,17 +14,9 @@
 
 <script setup lang="ts">
 import { Details } from "@/components/blocks";
+import type ArticleProps from "@/types/interfaces/Article";
 
-interface Props {
-  card: {
-    image: string;
-    date: string;
-    title: string;
-    text: string;
-  };
-}
-
-const props = defineProps<Props>();
+const props = defineProps<ArticleProps>();
 </script>
 
 <style lang="scss" scoped>
@@ -60,12 +50,6 @@ const props = defineProps<Props>();
     text-transform: uppercase;
   }
 
-  .posted {
-    font-size: to-rem(11);
-    font-weight: 300;
-    color: $color-text-secondary;
-  }
-
   .heading {
     font-size: to-rem(20);
     font-weight: 500;
@@ -83,10 +67,6 @@ const props = defineProps<Props>();
 
   .details {
     margin-top: auto;
-  }
-
-  img {
-    width: 100%;
   }
 }
 </style>
