@@ -1,6 +1,6 @@
 <template>
   <div class="root">
-    <ArticlesHeader title="Newest articles" />
+    <ArticlesHeader title="Newest articles" v-model:select="nullModel" v-model:search="nullModel" />
 
     <div class="margin">
       <div v-if="articles && articles.length > 0" class="cards">
@@ -19,6 +19,7 @@ import { ref } from "vue";
 import type { Article } from "@/types/interfaces/Article";
 
 const articles = ref<Article[] | null>(null);
+const nullModel = ref(null);
 
 fetch(import.meta.env.VITE_API_URL + "/posts?_limit=8")
   .then((res) => res.json())

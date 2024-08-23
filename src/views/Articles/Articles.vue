@@ -1,6 +1,12 @@
 <template>
   <div class="root">
-    <ArticlesHeader isWithFilters title="All Articles" />
+    <ArticlesHeader
+      title="All Articles"
+      isWithFilters
+      v-model:select="filters.select"
+      v-model:search="filters.search"
+      @search="handleSearch"
+    />
     <div class="margin" />
     <ul class="articles" v-if="isArticlesExist && !loading">
       <Article v-for="article in store.articles" :key="article.id" :article />
@@ -19,9 +25,11 @@
 import { ArticlesHeader } from "@views/Home";
 import { Article } from "./components";
 
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, onMounted, reactive, ref, watch } from "vue";
 
 import { useArticlesStore } from "@/stores";
+
+import type { IOption } from "@/types";
 
 const store = useArticlesStore();
 
@@ -29,10 +37,19 @@ const store = useArticlesStore();
 const counter = ref<number>(1);
 const loading = ref<boolean>(false);
 
+const filters = reactive<{ select: IOption["value"]; search: string | null }>({
+  select: null,
+  search: null,
+});
+
 const isArticlesExist = computed(() => store.articles && store.articles.length > 0);
 
 const handleLoadMore = () => {
   counter.value++;
+};
+
+const handleSearch = () => {
+  console.log("hi");
 };
 
 onMounted(() => {
