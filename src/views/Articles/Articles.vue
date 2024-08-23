@@ -60,6 +60,11 @@ const handleSearch = () => {
   loading.value = false;
 };
 
+const initializePage = () => {
+  store.$reset();
+  store.fetchArticlesByPage(1);
+};
+
 // подгрузка начальных 20 постов
 onMounted(() => {
   loading.value = true;
@@ -82,7 +87,13 @@ watch(
   () => filters.select,
   () => {
     loading.value = true;
-    store.fetchArticlesByUserId(Number(filters.select));
+
+    if (filters.select === null) {
+      initializePage();
+    } else {
+      store.fetchArticlesByUserId(Number(filters.select));
+    }
+
     loading.value = false;
   },
 );
@@ -92,8 +103,9 @@ watch(
   () => filters.search,
   () => {
     if (!filters.search || filters.search.length === 0) {
-      store.$reset();
-      store.fetchArticlesByPage(1);
+      loading.value = true;
+      initializePage();
+      loading.value = false;
     }
   },
 );
