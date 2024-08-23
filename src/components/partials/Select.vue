@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import {Icon} from "@components/partials";
 
-import { computed, defineProps, ref, onMounted, onBeforeUnmount } from "vue";
+import { computed, ref, onMounted, onBeforeUnmount } from "vue";
 
 import type { IOption } from "@/types";
 import type SelectProps from "@/types/interfaces/Select";
