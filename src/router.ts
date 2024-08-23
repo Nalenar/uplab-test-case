@@ -14,4 +14,6 @@ const router = createRouter({
   ],
 });
 
+export const navbarRoutes: (string | symbol)[] = ["blog", "articles"];
+
 export default router;

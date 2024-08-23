@@ -9,10 +9,14 @@
 
 <script setup lang="ts">
 import { RouterLink, useRouter } from "vue-router";
+import { navbarRoutes } from "@/router";
 
 const router = useRouter();
 
-const routes = router.getRoutes().filter((route) => !["test"].includes(route.name?.toString()!));
+const routes = router.getRoutes().filter((route) => {
+  if (!route.name) return false;
+  return navbarRoutes.includes(route.name);
+});
 </script>
 
 <style lang="scss" scoped>
