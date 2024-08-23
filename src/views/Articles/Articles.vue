@@ -13,10 +13,8 @@
     </ul>
     <p v-else class="loading">Loading...</p>
     <div class="btns">
-      <button v-if="!loading && store.articles.length !== 100" class="load" @click="handleLoadMore">
-        Load more...
-      </button>
-      <p v-else-if="loading" class="loading">Loading...</p>
+      <p v-if="loading" class="loading">Loading...</p>
+      <button v-else-if="isShowLoadBtn" class="load" @click="handleLoadMore">Load more...</button>
     </div>
   </div>
 </template>
@@ -33,9 +31,9 @@ import type { IOption } from "@/types";
 
 const store = useArticlesStore();
 
-// отвечает за подгрузку постов, передается в url запроса
-const counter = ref<number>(1);
-const loading = ref<boolean>(false);
+// отвечает за подгрузку постов, передается в url запроса, начинается с 1
+const counter = ref(1);
+const loading = ref(false);
 
 const filters = reactive<{ select: IOption["value"]; search: string | null }>({
   select: null,
@@ -43,6 +41,12 @@ const filters = reactive<{ select: IOption["value"]; search: string | null }>({
 });
 
 const isArticlesExist = computed(() => store.articles && store.articles.length > 0);
+
+const isShowLoadBtn = computed(() => {
+  if (filters.select !== null || (filters.search && filters.search.length > 0)) return false;
+  if (store.articles.length >= 100) return false;
+  return true;
+});
 
 const handleLoadMore = () => {
   counter.value++;
@@ -52,18 +56,32 @@ const handleSearch = () => {
   console.log("hi");
 };
 
+// подгрузка начальных 20 постов
 onMounted(() => {
   loading.value = true;
+
   store.$reset();
+  store.fetchArticlesByPage(counter.value);
+
+  loading.value = false;
+});
+
+// последующая подгрузка постов, следующая за нажатием кнопки "Load more"
+watch(counter, () => {
+  loading.value = true;
+
   store.fetchArticlesByPage(counter.value);
   loading.value = false;
 });
 
-watch(counter, () => {
-  loading.value = true;
-  store.fetchArticlesByPage(counter.value);
-  loading.value = false;
-});
+watch(
+  () => filters.select,
+  () => {
+    loading.value = true;
+    store.fetchArticlesByUserId(Number(filters.select));
+    loading.value = false;
+  },
+);
 </script>
 
 <style lang="scss" scoped>
