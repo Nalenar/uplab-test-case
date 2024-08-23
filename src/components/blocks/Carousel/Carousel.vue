@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { Icon } from "@components/partials";
-import { ref, onMounted, defineProps } from "vue";
+import { ref, onMounted } from "vue";
 
 const props = defineProps({
   navigation: {
