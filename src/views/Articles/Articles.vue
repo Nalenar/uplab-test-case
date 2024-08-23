@@ -53,7 +53,11 @@ const handleLoadMore = () => {
 };
 
 const handleSearch = () => {
-  console.log("hi");
+  loading.value = true;
+
+  if (filters.search && filters.search.length > 0) store.filterArticlesBySearch(filters.search);
+
+  loading.value = false;
 };
 
 // подгрузка начальных 20 постов
@@ -80,6 +84,17 @@ watch(
     loading.value = true;
     store.fetchArticlesByUserId(Number(filters.select));
     loading.value = false;
+  },
+);
+
+// если инпут пустой инициализурем 20 карточек
+watch(
+  () => filters.search,
+  () => {
+    if (!filters.search || filters.search.length === 0) {
+      store.$reset();
+      store.fetchArticlesByPage(1);
+    }
   },
 );
 </script>
