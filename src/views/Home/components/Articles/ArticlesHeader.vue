@@ -7,28 +7,28 @@
       :options="usersList"
       with-null-option
       placeholder="Choose user"
-      v-model="select"
+      v-model="filters.select"
     />
     <p class="heading" :class="{ centered: !isWithFilters }">{{ title }}</p>
-    <div v-if="isWithFilters" class="search" :class="{ focused: isInputFocused }">
-      <input
-        type="search"
-        placeholder="Search by keywords"
-        @focus="isInputFocused = true"
-        @blur="isInputFocused = false"
-      />
-      <button><Icon name="search" /></button>
-    </div>
+    <Search
+      v-if="isWithFilters"
+      class="search"
+      @search="handleSearch"
+      v-model="filters.search"
+      placeholder="Search by keywords"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { Select, Icon } from "@/components/partials";
+import { Select } from "@/components/partials";
+import { Search } from "@/components/blocks";
 
-import { ref } from "vue";
+import { ref, defineModel, watch, reactive } from "vue";
 
 import type { IOption } from "@/types";
 import type User from "@/types/interfaces/User";
+import type { TModel as TSelectModel } from "@/types/interfaces/Select";
 
 defineProps({
   isWithFilters: {
@@ -41,10 +41,30 @@ defineProps({
   },
 });
 
-const isInputFocused = ref<boolean>(false);
+const emit = defineEmits(["search"]);
 
-const select = ref<IOption["value"] | null>(null);
+const selectModel = defineModel<TSelectModel>("select", { required: true });
+const searchModel = defineModel<string | null>("search", { required: true });
+
+const filters = reactive<{ select: IOption["value"]; search: string }>({
+  select: null,
+  search: "",
+});
+
 const usersList = ref<IOption[]>([]);
+
+const handleSearch = () => {
+  emit("search", filters.search);
+};
+
+watch(
+  () => filters.select,
+  () => (selectModel.value = filters.select),
+);
+watch(
+  () => filters.search,
+  () => (searchModel.value = filters.search),
+);
 
 fetch(import.meta.env.VITE_API_URL + "/users")
   .then((res) => res.json())
@@ -83,67 +103,6 @@ fetch(import.meta.env.VITE_API_URL + "/users")
   .search {
     width: to-rem(240);
     height: 100%;
-  }
-
-  .search {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    height: 100%;
-    padding-left: to-rem(15);
-
-    border: 1px solid $color-text-secondary;
-
-    &.focused {
-      border-color: $color-commented;
-    }
-
-    input {
-      display: flex;
-      align-items: center;
-
-      width: 100%;
-      height: 100%;
-
-      background: transparent;
-      border: none;
-      caret-color: $color-text-secondary;
-
-      &::placeholder {
-        font-size: to-rem(14);
-        font-weight: 500;
-        text-transform: uppercase;
-      }
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    button {
-      cursor: pointer;
-
-      position: absolute;
-      right: 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      width: to-rem(50);
-      height: 100%;
-
-      color: $color-text-secondary;
-
-      border: none;
-      border-left: 1px solid $color-text-secondary;
-
-      & > * {
-        width: 22px;
-      }
-    }
   }
 
   .select {
