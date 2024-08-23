@@ -10,9 +10,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@styles/*": ["./src/styles/*"],
-      "@fonts/*": ["./public/fonts/*"],
+      "@fonts/*": ["./src/assets/fonts/*"],
       "@components/*": ["./src/components/*"],
-      "@images/*": ["./public/images/*"],
+      "@images/*": ["./src/assets/images/*"],
       "@utils/*": ["./src/utils/*"],
       "@icons/*": ["./src/assets/icons/*"],
       "@views/*": ["./src/views/*"]

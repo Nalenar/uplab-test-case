@@ -14,9 +14,9 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
       "@styles": path.resolve("src/styles"),
-      "@fonts": path.resolve("./fonts"),
+      "@fonts": path.resolve("src/assets/fonts"),
       "@components": path.resolve("src/components"),
-      "@images": path.resolve("./images"),
+      "@images": path.resolve("src/assets/images"),
       "@utils": path.resolve("src/utils"),
       "@icons": path.resolve("src/assets/icons"),
       "@views": path.resolve("src/views"),
