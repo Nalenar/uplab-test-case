@@ -46,6 +46,13 @@ const useArticlesStore = function () {
 
         return res;
       },
+
+      async filterArticlesBySearch(search: string) {
+        const query = await fetch(import.meta.env.VITE_API_URL + `/posts`);
+        const res: Article[] = await query.json();
+        const filteredArticles = res.filter((article) => article.title.includes(search));
+        this.articles = filteredArticles;
+      },
     },
   });
 
