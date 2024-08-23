@@ -23,6 +23,14 @@ const useArticlesStore = function () {
         const res: Article[] = await query.json();
         const temp: Article[] = [...this.articles];
         this.articles = [...temp, ...res];
+        return this.articles;
+      },
+
+      async fetchArticlesByUserId(userId: number) {
+        const query = await fetch(import.meta.env.VITE_API_URL + `/posts?userId=${userId}`);
+        const res: Article[] = await query.json();
+
+        this.articles = [...res];
       },
 
       async fetchNewestArticles() {
