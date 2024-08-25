@@ -64,7 +64,6 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 /* stylelint-disable selector-class-pattern */
-@import "@styles/functions";
 
 .select {
   cursor: pointer;

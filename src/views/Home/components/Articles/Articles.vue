@@ -28,8 +28,6 @@ fetch(import.meta.env.VITE_API_URL + "/posts?_limit=8")
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .root {
   width: 100%;
   padding: to-rem(40) to-rem(60);

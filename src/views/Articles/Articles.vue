@@ -112,8 +112,6 @@ watch(
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .root {
   width: 100%;
   height: 100%;

@@ -33,8 +33,6 @@ const handleButton = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .search {
   position: relative;
 

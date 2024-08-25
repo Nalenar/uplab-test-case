@@ -9,8 +9,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .logo {
   cursor: default;
 

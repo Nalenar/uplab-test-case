@@ -72,8 +72,6 @@ fetch(import.meta.env.VITE_API_URL + "/users")
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .header {
   display: flex;
   align-items: center;

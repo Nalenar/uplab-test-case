@@ -22,8 +22,6 @@ const routes = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .links {
   display: flex;
   gap: to-rem(15);

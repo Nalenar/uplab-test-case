@@ -33,8 +33,6 @@ const handleRedirect = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .article {
   cursor: pointer;
 

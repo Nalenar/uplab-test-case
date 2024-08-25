@@ -10,8 +10,6 @@ import { Logo, NavbarLinks } from "@/components/blocks";
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .root {
   position: fixed;
   z-index: 20;

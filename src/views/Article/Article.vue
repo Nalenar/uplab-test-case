@@ -51,8 +51,6 @@ const handleBack = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .root {
   display: flex;
   align-items: center;

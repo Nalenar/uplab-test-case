@@ -28,8 +28,6 @@ const handleReadMore = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .card {
   display: flex;
   flex-direction: column;

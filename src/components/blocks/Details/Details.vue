@@ -36,8 +36,6 @@ const isLiked = ref<boolean>(false);
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .options {
   display: flex;
   gap: to-rem(20);

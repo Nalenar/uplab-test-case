@@ -31,8 +31,6 @@ const isCommented = ref(false);
 </script>
 
 <style lang="scss" scoped>
-@import "@styles/functions";
-
 .root {
   position: relative;
 
