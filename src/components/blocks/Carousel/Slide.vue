@@ -7,6 +7,8 @@
 </template>
 
 <style lang="scss" scoped>
+/* stylelint-disable selector-class-pattern */
+
 .slide-enter-active,
 .slide-leave-active {
   transition: opacity 0.7s ease-in-out;
