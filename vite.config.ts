@@ -22,4 +22,14 @@ export default defineConfig({
       "@views": path.resolve("src/views"),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "./src/styles/_variables.scss";
+          @import "./src/styles/_functions.scss";
+        `,
+      },
+    },
+  },
 });
