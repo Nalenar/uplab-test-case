@@ -3,7 +3,6 @@
     <RouterLink v-for="(route, index) of routes" :key="index" :to="route.path" active-class="active" class="link">{{
       route.name
     }}</RouterLink>
-    <!-- <li class="link">Gallery</li> -->
   </ul>
 </template>
 

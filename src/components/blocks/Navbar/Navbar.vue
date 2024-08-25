@@ -1,12 +1,12 @@
 <template>
   <nav class="root">
     <Logo />
-    <NavigationLinks />
+    <NavbarLinks />
   </nav>
 </template>
 
 <script setup lang="ts">
-import { Logo, NavigationLinks } from "@/components/blocks";
+import { Logo, NavbarLinks } from "@/components/blocks";
 </script>
 
 <style lang="scss" scoped>
