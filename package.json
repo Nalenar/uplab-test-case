@@ -13,7 +13,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "check": "prettier --check src/",
-    "stylelint": "stylelint \"**/*.{css,scss,vue}\" --"
+    "stylelint": "stylelint \"**/*.{css,scss,vue}\" --ignore-path .gitignore --"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
