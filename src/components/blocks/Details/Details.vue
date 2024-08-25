@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import {Icon} from "@components/partials";
+import { Icon } from "@components/partials";
 import { ref } from "vue";
 
 interface Props {
