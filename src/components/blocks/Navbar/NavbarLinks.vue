@@ -1,20 +1,23 @@
 <template>
   <ul class="links">
-    <RouterLink v-for="(route, index) of routes" :key="index" :to="route.path" active-class="active" class="link">{{
-      route.name
-    }}</RouterLink>
+    <RouterLink v-for="(route, index) of routes" :key="index" :to="route.path" active-class="active" class="link">
+      {{ route.name }}
+    </RouterLink>
   </ul>
 </template>
 
 <script setup lang="ts">
 import { RouterLink, useRouter } from "vue-router";
+import { computed } from "vue";
 import { navbarRoutes } from "@/router";
 
 const router = useRouter();
 
-const routes = router.getRoutes().filter((route) => {
-  if (!route.name) return false;
-  return navbarRoutes.includes(route.name);
+const routes = computed(() => {
+  return router.getRoutes().filter((route) => {
+    if (!route.name) return false;
+    return navbarRoutes.includes(route.name);
+  });
 });
 </script>
 
