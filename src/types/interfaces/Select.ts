@@ -1,11 +1,10 @@
-import type { IconType } from "@/components/partials/Icon.vue";
-import type { IOption } from "..";
+import type { IOption, TIcon } from "..";
 
 export default interface SelectProps {
   options: IOption[];
   placeholder?: string;
   withNullOption?: boolean;
-  icon?: IconType;
+  icon?: TIcon;
 }
 
 export type TModel = IOption["value"];
